@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block main %}
+
+ <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" id="password" placeholder="Password" type="password" onkeyup="check();">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password_confirm" id="password_confirm" placeholder="Password again" type="password" onkeyup="check();">
+        </div>
+        <span id="message"></span><br>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+<script>
+
+
+    var check = function(){
+        if (document.getElementById('password').value ==
+        document.getElementById('password_confirm').value)
+        {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'matching';
+        }
+    else
+        {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
+        }
+    };
+
+</script>
+{% endblock %}

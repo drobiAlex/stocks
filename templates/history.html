@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+{% block main %}
+
+<table id="example" class="table table-striped " style="width:100%">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for his in history %}
+
+            <tr>
+                <th>{{his.symbol}}</th>
+                <th>{{his.shares}}</th>
+                <th>{{his.price}}</th>
+                <th>{{his.transacted}}</th>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+{% endblock %}
